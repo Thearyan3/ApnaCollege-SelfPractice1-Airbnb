@@ -21,7 +21,8 @@ async function main(){
 }
 
 app.set("views engine", "ejs");//step9(ii)
-app.set("views", path.join(__dirname, "views"));//step(iii)
+app.set("views", path.join(__dirname, "views"));//step9(iii)
+app.use(express.urlencoded({extended: true}));//step10(ii)
 
 //Test Route (step6)
 // app.get("/testlistings",async (req, res)=> {
@@ -50,12 +51,20 @@ app.get("/listings/new", (req, res) => {
     res.render("listings/new.ejs");
 })
 
-//Show Route (Step10)- create show.ejs with this
+//Show Route (Step10(i))- create show.ejs with this
 app.get("/listings/:id", async(req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
     res.render("listings/show.ejs", {listing});
 });
+
+//Create Route (step12)- directly connected with new route. Created after new.ejs
+app.post("/listings", async(req, res) => {
+    //let{title, description, image, price, location, country} = req.body; (I-method)
+    let aryan = new Listing(req.body.listing);//(II-method)
+    await aryan.save();
+    res.redirect("/listings");
+})
 
 app.listen(8080, () => {
     console.log("Server is listening to port 8080");//Step2
