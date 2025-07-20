@@ -4,7 +4,7 @@ const app = express();//Step1
 const mongoose = require("mongoose");//Step4(i)
 const Listing = require("./Models/listing.js");//Step5
 const path = require("path");//Step9
-
+const methodOverride = require("method-override");
 
 app.get("/", (req, res)=> {
     res.send("Root is working");//Step3
@@ -23,6 +23,7 @@ async function main(){
 app.set("views engine", "ejs");//step9(ii)
 app.set("views", path.join(__dirname, "views"));//step9(iii)
 app.use(express.urlencoded({extended: true}));//step10(ii)
+app.use(methodOverride("_method"));//(step14)
 
 //Test Route (step6)
 // app.get("/testlistings",async (req, res)=> {
@@ -67,6 +68,7 @@ app.post("/listings", async(req, res) => {
 });
 
 //Edit Route (step13)- first create anchor tag inside show.ejs then this route.
+//This route's file (edit.ejs) will update the existing data, so it will require method-override package. So next step is 14. 
 app.get("/listings/:id/edit", async(req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
