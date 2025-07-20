@@ -38,13 +38,19 @@ app.set("views", path.join(__dirname, "views"));//step(iii)
 //     res.send("Sample was tested");
 // });
 
-//Index Route (Step8)
+//Index Route (Step8)-create index.ejs with this.
+//Also connected with (step11)-create button for new listing before new route.
 app.get("/listings", async(req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", {allListings});
 });
 
-//Show Route (Step10)
+//New Route (Step11)-Must create before show route otherwise the server will confuse /new with /:id
+app.get("/listings/new", (req, res) => {
+    res.render("listings/new.ejs");
+})
+
+//Show Route (Step10)- create show.ejs with this
 app.get("/listings/:id", async(req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
