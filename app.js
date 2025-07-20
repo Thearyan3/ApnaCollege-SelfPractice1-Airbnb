@@ -3,6 +3,7 @@ const express = require("express");//Step1
 const app = express();//Step1
 const mongoose = require("mongoose");//Step4(i)
 const Listing = require("./Models/listing.js");//Step5
+const path = require("path");//Step9
 
 
 app.get("/", (req, res)=> {
@@ -18,6 +19,9 @@ main()
 async function main(){
     await mongoose.connect(MONGO_URL);//Step4(iii)
 }
+
+app.set("views engine", "ejs");//step9(ii)
+app.set("views", path.join(__dirname, "views"));//step(iii)
 
 //Test Route (step6)
 // app.get("/testlistings",async (req, res)=> {
@@ -38,6 +42,13 @@ async function main(){
 app.get("/listings", async(req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", {allListings});
+});
+
+//Show Route (Step10)
+app.get("/listings/:id", async(req, res) => {
+    let {id} = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/show.ejs", {listing});
 });
 
 app.listen(8080, () => {
