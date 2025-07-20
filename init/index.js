@@ -3,7 +3,7 @@ const mongoose = require("mongoose");//(i)
 const initData = require("./data.js");//(ii)
 const Listing = require("../Models/listing.js");//(iii)
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/telegram";//i-step
+const MONGO_URL = "mongodb://127.0.0.1:27017/Practice3";//i-step
 
 main()//i-step
 .then((res) => {//i-step
@@ -19,8 +19,8 @@ async function main(){//i-step
 
 const initDB = async () => {//(iv)
     await Listing.deleteMany({});//(iv)
-    // await Listing.insertMany(initData.data);//(iv)
-    // console.log("Data was Initialized");//(iv)
+     await Listing.insertMany(initData.data);//(iv)
+     console.log("Data was Initialized");//(iv)
 } 
 
 initDB();//(iv)
