@@ -64,7 +64,14 @@ app.post("/listings", async(req, res) => {
     let aryan = new Listing(req.body.listing);//(II-method)
     await aryan.save();
     res.redirect("/listings");
-})
+});
+
+//Edit Route (step13)- first create anchor tag inside show.ejs then this route.
+app.get("/listings/:id/edit", async(req, res) => {
+    let {id} = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/edit.ejs", {listing});
+});
 
 app.listen(8080, () => {
     console.log("Server is listening to port 8080");//Step2
