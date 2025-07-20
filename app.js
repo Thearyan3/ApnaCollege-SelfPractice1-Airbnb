@@ -34,6 +34,11 @@ async function main(){
 //     res.send("Sample was tested");
 // });
 
+//Index Route (Step8)
+app.get("/listings", async(req, res) => {
+    const allListings = await Listing.find({});
+    res.render("listings/index.ejs", {allListings});
+});
 
 app.listen(8080, () => {
     console.log("Server is listening to port 8080");//Step2
