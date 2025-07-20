@@ -75,6 +75,21 @@ app.get("/listings/:id/edit", async(req, res) => {
     res.render("listings/edit.ejs", {listing});
 });
 
+//Update Route (Step15)
+app.put("/listings/:id", async(req, res) => {
+    let {id} = req.params;
+    await Listing.findByIdAndUpdate(id, {...req.body.listing});
+    res.redirect(`/listings/${id}`);
+});
+
+//Delete Route (step16)
+app.delete("/listings/:id", async(req, res) => {
+    let {id} = req.params;
+    const aryan = await Listing.findByIdAndDelete(id);
+    console.log(aryan);
+    res.redirect("/listings");
+});
+
 app.listen(8080, () => {
     console.log("Server is listening to port 8080");//Step2
 });
