@@ -27,6 +27,7 @@ app.set("views", path.join(__dirname, "views"));//step9(iii)
 app.use(express.urlencoded({extended: true}));//step10(ii)
 app.use(methodOverride("_method"));//step14(ii)
 app.engine("ejs", "ejsMate");//Step17(ii)
+app.use(express.static(path.join(__dirname, "/public")));//Step19 - ab isko boilerplate.ejs me link krenge
 
 //Test Route (step6)
 // app.get("/testlistings",async (req, res)=> {
