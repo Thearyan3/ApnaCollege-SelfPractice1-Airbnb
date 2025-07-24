@@ -1,10 +1,12 @@
-//Install -> four packages installation which are: init, express, ejs, mongoose.
+//Install -> four packages installation which are: init, express, ejs, mongoose for basic structure.
+//Install -> ejsMate for basic styling.
 const express = require("express");//Step1
 const app = express();//Step1
 const mongoose = require("mongoose");//Step4(i)
 const Listing = require("./Models/listing.js");//Step5
 const path = require("path");//Step9
-const methodOverride = require("method-override");
+const methodOverride = require("method-override");//Step-14(i)
+const ejsMate = require("ejs-mate");//Step17(i)
 
 app.get("/", (req, res)=> {
     res.send("Root is working");//Step3
@@ -23,7 +25,8 @@ async function main(){
 app.set("views engine", "ejs");//step9(ii)
 app.set("views", path.join(__dirname, "views"));//step9(iii)
 app.use(express.urlencoded({extended: true}));//step10(ii)
-app.use(methodOverride("_method"));//(step14)
+app.use(methodOverride("_method"));//step14(ii)
+app.engine("ejs", "ejsMate");//Step17(ii)
 
 //Test Route (step6)
 // app.get("/testlistings",async (req, res)=> {
