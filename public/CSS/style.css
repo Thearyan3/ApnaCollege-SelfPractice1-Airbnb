@@ -1,6 +1,6 @@
-/* .body{
-
-} */
+.body{
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+} 
 
 /* Navbar */
 .navbar{
@@ -41,4 +41,29 @@
     flex-wrap: wrap;
     align-items: space-evenly;
     justify-content: center;
+}
+
+
+/* Cards */
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text{
+    font-weight: 400 !important;
+}
+
+.listing-link{
+    text-decoration: none !important;
 }
