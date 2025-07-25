@@ -37,6 +37,11 @@
     align-items: center;
 }
 
+.f-info-socials i{
+    font-size: 1.2 rem;
+    margin-right: 1 rem;
+}
+
 .f-info{
     text-align: center;
     height: 8rem;
