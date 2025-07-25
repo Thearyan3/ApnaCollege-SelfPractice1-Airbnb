@@ -67,3 +67,13 @@
 .listing-link{
     text-decoration: none !important;
 }
+
+/* Card Effects */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
