@@ -5,6 +5,10 @@
   min-height: 100vh;
 } 
 
+.container{
+    flex: 1;
+}
+
 /* Navbar */
 .navbar{
     height: 5rem;
@@ -84,4 +88,10 @@
 .card-img-overlay:hover{
     opacity: 0.2;
     background-color: white;
+}
+
+/* New Page */
+.add-btn{
+    color: #fe424d;
+    border: none !important;
 }
