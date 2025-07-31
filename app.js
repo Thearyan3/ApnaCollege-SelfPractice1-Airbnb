@@ -22,7 +22,7 @@ async function main(){
     await mongoose.connect(MONGO_URL);//Step4(iii)
 }
 
-app.set("views engine", "ejs");//step9(ii)
+app.set("view engine", "ejs");//step9(ii)
 app.set("views", path.join(__dirname, "views"));//step9(iii)
 app.use(express.urlencoded({extended: true}));//step10(ii)
 app.use(methodOverride("_method"));//step14(ii)
