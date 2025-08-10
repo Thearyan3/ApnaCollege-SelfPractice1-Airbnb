@@ -42,8 +42,8 @@
 }
 
 .f-info-socials i{
-    font-size: 1.2 rem;
-    margin-right: 1 rem;
+    font-size: 1.2rem;
+    margin-right: 1rem;
 }
 
 .f-info{
@@ -53,6 +53,7 @@
     flex-wrap: wrap;
     align-items: space-evenly;
     justify-content: center;
+    background-color: #ebebeb
 }
 
 
