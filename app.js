@@ -90,7 +90,6 @@ app.put("/listings/:id", async(req, res) => {
 app.delete("/listings/:id", async(req, res) => {
     let {id} = req.params;
     const aryan = await Listing.findByIdAndDelete(id);
-    console.log(aryan);
     res.redirect("/listings");
 });
 
